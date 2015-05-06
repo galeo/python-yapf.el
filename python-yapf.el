@@ -30,7 +30,7 @@
 ;;
 ;;; Installation:
 ;;
-;; Fist, install Python Yapf package with pip:
+;; First, install Python Yapf package with pip:
 ;;
 ;;     pip install -U yapf
 ;;
