@@ -141,8 +141,8 @@ Check `python-yapf-command' for what the format action will do."
            mark-active)
        (list (region-beginning) (region-end))
      (list (point-min) (point-max))))
-  (let* ((output)
-         (output-buffer "*python-yapf output*"))
+  (let (output
+        (output-buffer "*python-yapf output*"))
     (shell-command-on-region
      beg end
      python-yapf
