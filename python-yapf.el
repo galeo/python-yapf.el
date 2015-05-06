@@ -38,7 +38,7 @@
 ;;
 ;;     (require 'python-yapf)
 ;;
-;; Three commands are supplied to reindent python code:
+;; Three commands are supplied to reformat python code:
 ;;
 ;;     `python-yapf-region'
 ;;     `python-yapf-file'
@@ -116,7 +116,7 @@ Check `python-yapf-command' for what the format action will do."
 (defun python-yapf-file (file)
   "Format a file(by default the one opened in current buffer).
 
-Check `python-yapf-command' for what the indentation action will do."
+Check `python-yapf-command' for what the format action will do."
   (interactive
    (let ((file-to-format
           (ido-read-file-name
