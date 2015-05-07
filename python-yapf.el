@@ -78,7 +78,9 @@
 
 
 (defcustom python-yapf-command "yapf"
-  "Command used to format a python file."
+  "Command used to format a python file.
+
+For further information, just check its usage help."
   :type 'string
   :group 'python)
 
@@ -158,7 +160,7 @@ Check `python-yapf-command' for what the format action will do."
     (if (and output
              (not (string-match "^Traceback\\|^\\w+Error:" output)))
         (progn
-          (message "no error!")
+          ;; no error
           (goto-char beg)
           (kill-region beg end)
           (insert output)
