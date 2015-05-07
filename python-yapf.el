@@ -93,6 +93,8 @@ or the name of a file with style settings. 'pep8' is the default."
           " --style " python-yapf-style)
   "Python yapf command with formatting style.")
 
+
+;;;###autoload
 (defun python-yapf-directory (dir &optional recurse-p)
   "Search and format .py files in a directory.
 
@@ -113,6 +115,8 @@ Check `python-yapf-command' for what the format action will do."
   (revert-python-buffers)
   (message "Format files done!"))
 
+
+;;;###autoload
 (defun python-yapf-file (file)
   "Format a file(by default the one opened in current buffer).
 
@@ -134,6 +138,8 @@ Check `python-yapf-command' for what the format action will do."
             (revert-buffer-keep-undo t t t)))))
   (message "Format files done!"))
 
+
+;;;###autoload
 (defun python-yapf-region (beg end)
   "Format the code of the region or the buffer if no region selected."
   (interactive
