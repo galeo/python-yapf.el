@@ -5,9 +5,9 @@
 ;; Author: Moogen Tian <ibluefocus@NOSPAM.gmail.com>
 ;; Homepage: http://blog.galeo.me
 ;; url: https://github.com/galeo/python-yapf.el
-;; Version: 0.0.1
+;; Version: 0.0.2
 ;; Created: May 6 2015
-;; Keywords: python, yapf, pep8, formatter
+;; Keywords: tools, python, yapf, pep8, formatter
 ;;
 ;;; This file is NOT part of GNU Emacs
 ;;
@@ -54,7 +54,7 @@
 ;;; Code:
 
 
-(defun revert-buffer-keep-undo (&rest -)
+(defun python-yapf-revert-buffer-keep-undo (&rest -)
   "Revert buffer but keep undo history."
   (interactive)
   (let ((inhibit-read-only t))
@@ -64,7 +64,7 @@
     (set-visited-file-modtime)
     (set-buffer-modified-p nil)))
 
-(defun revert-python-buffers ()
+(defun python-yapf-revert-python-buffers ()
   "Refresh all opened buffers of python files."
   (interactive)
   (dolist (buf (buffer-list))
@@ -73,7 +73,7 @@
                  (string-match-p "\\.pyw?$"
                                  (file-name-nondirectory (buffer-file-name)))
                  (not (buffer-modified-p)))
-        (revert-buffer-keep-undo t t t))))
+        (python-yapf-revert-buffer-keep-undo t t t))))
   (message "Refreshed opened python files."))
 
 
@@ -114,7 +114,7 @@ Check `python-yapf-command' for what the format action will do."
                          (if recurse-p
                              "--recursive ")
                          dir))
-  (revert-python-buffers)
+  (python-yapf-revert-python-buffers)
   (message "Format files done!"))
 
 
@@ -137,7 +137,7 @@ Check `python-yapf-command' for what the format action will do."
     (when file-buffer
       (with-current-buffer file-buffer
         (if (buffer-modified-p file-buffer)
-            (revert-buffer-keep-undo t t t)))))
+            (python-yapf-revert-buffer-keep-undo t t t)))))
   (message "Format files done!"))
 
 
@@ -170,6 +170,7 @@ Check `python-yapf-command' for what the format action will do."
           (kill-buffer output-buffer)
           (message "Code has been formatted!"))
       (message "Error occurred, please check!"))))
+
 
 (provide 'python-yapf)
 
